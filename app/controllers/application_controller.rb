@@ -4,11 +4,11 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-  	render :text => "session_user_id: #{session['user_id']}, current_user: #{current_user.name}"
   end
 
   def current_user
     @current_user ||= User.find(session['user_id']) if session['user_id']
   end
+  helper_method :current_user
 end
 
