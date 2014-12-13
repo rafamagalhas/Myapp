@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def index
-  	render :text => "session_user_id: #{session['user_id']}, current_user#{current_user.name}"
+  	render :text => "session_user_id: #{session['user_id']}, current_user: #{current_user.name}"
   end
 
   def current_user
