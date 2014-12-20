@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :questions
+
   get '/auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#logout'
   # The priority is based upon order of creation: first created -> highest priority.
