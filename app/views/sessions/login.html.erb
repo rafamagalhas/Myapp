@@ -1,5 +1,5 @@
 <p>
-	<h1>Home</h1>
+	<h1><%= t('.title') %></h1>
 	<% if current_user %>
 		<h3>Bem-vindo <%= current_user.name %></h3>
 		<a class="btn btn-default" href="/logout">Sair</a>

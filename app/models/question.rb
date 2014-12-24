@@ -10,4 +10,6 @@ class Question
 
 	validates :title, :content, :user, :presence => true
 	validates :title, :content, :length => {:in => 2..140}
+
+	scope :my_questions, -> { desc(:created_at).limit(3)}
 end

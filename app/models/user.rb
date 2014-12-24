@@ -8,9 +8,12 @@ class User
 	has_many :answers
 
 	validates :name, :email, :presence => true
+	validates :email, :uniqueness => true
 	def self.find_or_create_from_auth_hash(auth_hash)
 		begin
-			user = User.find_by(:email => auth_hash['info']['email'])	
+			user = User.find_by(:email => auth_hash['info']['email'])
+			user.image_url = auth_hash['info']['image']
+			user.save	
 		rescue Exception => e
 			user = User.new
 			user.email = auth_hash['info']['email']
