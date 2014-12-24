@@ -17,4 +17,4 @@ pt-BR:
       edit: "Editar %{model}"
       save: "Savar %{model}"
       new: "Novo %{model}"
-      delete: "Remover %{model}"
+      delete: "Remover  %{model}"

@@ -1,4 +1,15 @@
 pt-BR:
+  app:
+    navigation:
+      my_questions: 'Minhas perguntas'
+      logout: 'Sair'
+      login: 'Login'
+  questions:
+    index:
+      title: 'Perguntas'
+  sessions:
+    login:
+      title: 'Autenticação'
   notice:
     created: '%{model} criada com sucesso!'
     updated: '%{model} atualizada com sucesso!'
@@ -12,6 +23,7 @@ pt-BR:
         hits: 'Visualizações'
         user_id: 'Usuário'
         created_at: 'Criado em'
+        answers: 'Respostas'
   date:
     abbr_day_names:
     - Dom
