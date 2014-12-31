@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
-  resources :questions
+  resources :answers do
+    post 'vote/:type', to: 'answers#vote'
+  end
+
+  resources :questions do
+    collection do
+      get 'hits', to: 'questions#hits'
+    end
+  end
 
   get '/auth/:provider/callback', to: 'sessions#create'
   get 'logout', to: 'sessions#logout'
   get 'login', to: 'sessions#login'
+  get 'answers/:question_id/new', to: 'answers#new'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

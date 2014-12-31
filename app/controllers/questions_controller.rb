@@ -3,6 +3,15 @@ class QuestionsController < ApplicationController
   before_action :require_login, only: [:new, :edit, :update, :destroy] 
   # GET /questions
   # GET /questions.json
+
+  def hits
+    @json = []
+    Question.all.each do |q|
+      @json.push({:id => q.id.to_s, :hits => q.hits})
+    end
+    render :layout => false, :json => @json
+  end
+
   def index
     @questions = Question.all
   end
@@ -10,6 +19,7 @@ class QuestionsController < ApplicationController
   # GET /questions/1
   # GET /questions/1.json
   def show
+    @question.hit
   end
 
   # GET /questions/new

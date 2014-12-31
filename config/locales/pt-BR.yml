@@ -7,6 +7,9 @@ pt-BR:
   questions:
     index:
       title: 'Perguntas'
+  answers:
+    new:
+      title: 'Nova Resposta'      
   sessions:
     login:
       title: 'Autenticação'
@@ -16,6 +19,7 @@ pt-BR:
   mongoid:
     models:
       question: 'Pergunta'
+      answer: 'Resposta'
     attributes:
       question:
         title: 'Título'
@@ -24,6 +28,8 @@ pt-BR:
         user_id: 'Usuário'
         created_at: 'Criado em'
         answers: 'Respostas'
+      answer:
+        content: 'Conteúdo'
   date:
     abbr_day_names:
     - Dom
