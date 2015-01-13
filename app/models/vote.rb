@@ -1,5 +1,6 @@
 class Vote
 	include Mongoid::Document
+	include Mongoid::Timestamps
 	field :up, type: Boolean
 
 	belongs_to :user

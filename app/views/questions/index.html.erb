@@ -22,7 +22,7 @@
         <td><%= question.hits.to_i   %></td>
         <td><%= link_to question.title, question %></td>
         <td><%= image_tag question.user.image_url,  alt: 'avatar do usuário',height: '32px',width: '32px' %></td>
-        <td><%= question.user.name %></td>
+        <td><%= link_to question.user.name, question.user %></td>
         <td><%=l question.created_at, :format => '%d/%m/%y' %></td>
         <td>
           <% if current_user == question.user %>

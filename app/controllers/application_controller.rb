@@ -24,5 +24,16 @@ class ApplicationController < ActionController::Base
   	end
   end
   helper_method :require_login
+
+  def load_actiondispatch_file!(actiondispatch,target_folder,field)
+    FileUtils.mkdir_p(target_folder) unless File.exist?(target_folder)
+    begin
+      file = File.open("#{target_folder}/#{field.to_s}",'w:ASCII-8BIT:UTF-8')
+      file.write(actiondispatch.read)
+    ensure
+      file.close
+    end
+  end
+  helper_method :load_actiondispatch_file!
 end
 

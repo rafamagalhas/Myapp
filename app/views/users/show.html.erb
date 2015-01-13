@@ -1,0 +1,45 @@
+<%- model_class = User -%>
+<div class="page-header">
+  <%= image_tag @user.image_url, class: 'img-polaroid', width: '64px', height: '64px' %><h1><%= @user.name %></h1>
+</div>
+
+<dl class="dl-horizontal">
+  <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
+  <dd><%= @user.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
+  <dd><%= @user.email %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:reputation) %>:</strong></dt>
+  <dd><%= @user.reputation %></dd>
+</dl>
+
+<div class="form-actions">
+  <% if @user == current_user %>
+    <%= link_to t('.edit', :default => t("helpers.links.edit")),
+                edit_user_path(@user), :class => 'btn btn-default' %>
+    <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
+                user_path(@user),
+                :method => 'delete',
+                :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) },
+                :class => 'btn btn-danger' %>
+  <% end %>
+</div>
+
+<% if @user.answers!=nil && @user.answers.size>0%>
+  <h2><%= t 'mongoid.attributes.user.recent_answers' %></h2>
+  <table class="table">
+    <thead>
+      <th><%= t 'mongoid.models.question' %></th>
+      <th><%= t 'mongoid.models.answer' %></th>
+      <th><%= t 'mongoid.attributes.answer.vote_balance' %></th>
+    </thead>
+    <tbody>
+      <% @user.answers.each do |a|%>
+        <tr>
+          <td><%= link_to a.question.title, a.question %></td>
+          <td><%= a.content %></td>
+          <td><%= a.vote_balance %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
