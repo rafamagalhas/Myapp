@@ -62,6 +62,7 @@ production:
   sessions:
     # Defines the default session. (required)
     default:
+      uri: <%= ENV['MONGOLAB_URL'] %>
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
       database: myapp
