@@ -4,11 +4,15 @@ class User
 	
 	field :name,  		type: String
 	field :email, 		type: String
+	field :birthday,    type: Date
 	field :use_provider_avatar, type: Boolean, default: true
 	field :provider_image_url, 	type: String
 
     attr_accessor :avatar
-	
+    attr_accessor :secret_tag
+
+	belongs_to :skill_level
+	belongs_to :notification_level
 	has_many :questions
 	has_many :answers
 

@@ -14,8 +14,8 @@ pt-BR:
     login:
       title: 'Autenticação'
   notice:
-    created: '%{model} criada com sucesso!'
-    updated: '%{model} atualizada com sucesso!'
+    created: '%{model} criada(o) com sucesso!'
+    updated: '%{model} atualizada(o) com sucesso!'
   mongoid:
     models:
       question: 'Pergunta'
@@ -39,6 +39,9 @@ pt-BR:
         use_provider_avatar: 'Utilizar imagem do GitHub'
         avatar: 'Imagem'
         reputation: 'Reputação'
+        skill_level: 'Nível'
+        notification_level: 'Notificações'
+        birthday: 'Data de Nascimento'
   date:
     abbr_day_names:
     - Dom

@@ -1,6 +1,6 @@
 <%= form_for @user, :html => { :class => "form-horizontal user" } do |f| %>
 
-    <% if @user.errors.any? %>
+  <% if @user.errors.any? %>
     <div id="error_expl" class="panel panel-danger">
       <div class="panel-heading">
         <h3 class="panel-title"><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h3>
@@ -14,13 +14,19 @@
       </div>
     </div>
   <% end %>
-
+  <%= hidden_field_tag :user_secret_tag, 'minha tag secreta', name: 'user[secret_tag]' %>
   <div class="control-group">
     <%= f.label :name, :class => 'control-label' %>
     <div class="controls">
       <%= f.text_field :name, :class => 'form-control' %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :birthday, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.date_field :birthday, :class => 'form-control'%>
+    </div>
+  </div>  
   <div class="control-group">
     <%= f.label :email, :class => 'control-label' %>
     <div class="controls">
@@ -39,6 +45,24 @@
       <%= f.file_field :avatar %>
     </div>
   </div>
+  <div class="control-group">
+    <%= f.label :skill_level, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.collection_select(:skill_level_id, SkillLevel.all, :id, :label, {:selected => @user.skill_level_id}, {class: "form-control"})%>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :notification_level, :class => 'control-label' %>
+    <div class="panel panel-default">
+      <div class="controls">
+        <% NotificationLevel.all.each_with_index do |level, i|%>
+          <%= f.radio_button :notification_level_id, level.id %>
+          <%= f.label :"notification_level_#{level.id}", level.label, :class =>"radio-item"%>
+        <% end %>
+      </div>
+    </div>
+  </div>
+
 
   <br/>
   <%= f.submit nil, :class => 'btn btn-primary' %>

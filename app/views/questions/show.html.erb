@@ -29,7 +29,7 @@
   <% if current_user!=nil && @question.user.id==current_user.id%>
     <%= link_to 'Responder',"/answers/#{@question.id}/new", :class => 'btn btn-success'  %>
     <%= link_to t('.edit', :default => t("helpers.links.edit")),
-                edit_question_path(@question), :class => 'btn' %>
+                edit_question_path(@question), :class => 'btn btn-default' %>
     <%= link_to t('.destroy', :default => t("helpers.links.destroy")),
                 question_path(@question),
                 :method => 'delete',

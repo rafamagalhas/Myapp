@@ -6,10 +6,16 @@
 <dl class="dl-horizontal">
   <dt><strong><%= model_class.human_attribute_name(:name) %>:</strong></dt>
   <dd><%= @user.name %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:birthday) %>:</strong></dt>
+  <dd><%= l @user.birthday %></dd>
   <dt><strong><%= model_class.human_attribute_name(:email) %>:</strong></dt>
   <dd><%= @user.email %></dd>
   <dt><strong><%= model_class.human_attribute_name(:reputation) %>:</strong></dt>
   <dd><%= @user.reputation %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:skill_level) %>:</strong></dt>
+  <dd><%= @user.skill_level.label %></dd>
+  <dt><strong><%= model_class.human_attribute_name(:notification_level) %>:</strong></dt>
+  <dd><%= @user.notification_level.try(:label) %></dd>
 </dl>
 
 <div class="form-actions">
