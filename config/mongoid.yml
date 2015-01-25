@@ -72,7 +72,11 @@ production:
       password: myapp
       hosts:
         - ds061620.mongolab.com:61620
+
       options:
+        consistency: :strong
+        max_retries: 1
+        retry_interval: 0
         # Change the default write concern. (default = { w: 1 })
         # write:
         # w: 1
