@@ -62,16 +62,17 @@ production:
   sessions:
     # Defines the default session. (required)
     default:
-      uri: mongodb://myapp:myapp@ds061620.mongolab.com:61620/myapp
+      #uri: mongodb://myapp:myapp@ds061620.mongolab.com:61620/myapp
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
-      database: myapp
+      database: rafa-myapp
       # Provides the hosts the default session can connect to. Must be an array
       # of host:port pairs. (required)
       username: myapp
       password: myapp
       hosts:
-        - ds061620.mongolab.com:61620
+        #- ds061620.mongolab.com:61620
+        - ds041861.mongolab.com:41861
 
       options:
         consistency: :strong
